@@ -1,0 +1,29 @@
+.payment-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  background: white;
+  font-family: sans-serif;
+}
+
+.payment-container h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.payment-container p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.pay-button {
+  padding: 12px 20px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}

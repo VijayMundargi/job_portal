@@ -1,15 +1,23 @@
-const mongoose = require('mongoose')
+const { MongoClient } = require('mongodb');
 
-const connectDb = async () =>{
-    try{
-        await mongoose.connect(process.env.MONGO_URI)
-        console.log("Database connected Sucefullt!!")
-    }
-    catch(err){
-        console.log(err.message)
-        process.exit(1)
+const uri = 'mongodb://localhost:27017'; 
+const dbName = 'job_profile'; 
 
-    }
+let db;
+
+async function connectDB() {
+  if (db) return db; 
+
+  try {
+    const client = new MongoClient(uri, { useUnifiedTopology: true });
+    await client.connect();
+    console.log(' Connected to MongoDB');
+    db = client.db(dbName);
+    return db;
+  } catch (err) {
+    console.error(' MongoDB connection error:', err);
+    process.exit(1);
+  }
 }
 
-module.exports = connectDb;
+module.exports = connectDB;

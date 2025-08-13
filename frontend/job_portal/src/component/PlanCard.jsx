@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const PlanCard = ({ plan }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className={`plan-card ${plan.highlight ? 'highlight' : ''}`}>
-      <h2 className="plan-title">{plan.name}</h2>
-      <p className="plan-price">₹{plan.price}/m</p>
-      <ul className="plan-features">
-        {plan.features.map((f, idx) => (
-          <li key={idx}>✓ {f}</li>
-        ))}
-      </ul>
-      <button className="get-started">Get Started</button>
+    <div className="plan-card">
+      <h3>{plan.name}</h3>
+      <p>₹{plan.price}/month</p>
+      <button onClick={() => navigate(`/payment/${plan.name}/${plan.price}`)}>
+        Get Started
+      </button>
     </div>
   );
 };

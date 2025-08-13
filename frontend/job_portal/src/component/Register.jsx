@@ -1,107 +1,122 @@
-// src/pages/Register.js
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const Register = () => {
-  const [form, setForm] = useState({
+const RegisterPage = () => {
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
-    pass: "",
-    confirmPass: ""
+    phoneNumber: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.id]: e.target.value });
-  };
-
-  const checkPassword = () => {
-    return form.pass === form.confirmPass;
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!checkPassword()) {
-      alert("Passwords do not match!");
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Passwords do not match!", { position: "top-center" });
       return;
     }
 
-    const userData = {
-      name: form.name,
-      email: form.email,
-      phoneNumber: form.phone,     
-      password: form.pass          
-    };
-
     try {
-      const res = await fetch("http://localhost:4000/api/job/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(userData)
+      await axios.post("http://localhost:4000/api/register", {
+        name: formData.name,
+        email: formData.email,
+        phoneNumber: formData.phoneNumber,
+        password: formData.password
       });
 
-      const data = await res.json();
+      toast.success(" Account created successfully!", { position: "top-center" });
 
-      if (res.status === 201) {
-        alert("Account created successfully!");
+      setTimeout(() => {
         navigate("/login");
-      } else {
-        alert(data.message || "Registration failed");
-      }
-    } catch (error) {
-      console.error("Registration error:", error);
-      alert("Something went wrong. Please try again.");
+      }, 2000);
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Registration failed", { position: "top-center" });
     }
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit}>
-        <h2 className="right-para" style={{ textAlign: "center" }}>Registration Form</h2>
+    <div style={{
+      minHeight: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#007BFF"
+    }}>
+      <ToastContainer />
+      <div style={{
+        background: "white",
+        padding: "30px",
+        borderRadius: "10px",
+        width: "350px",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+      }}>
+        <h2 style={{ textAlign: "center", marginBottom: "20px" }}>Register</h2>
+        <form onSubmit={handleSubmit}>
+          <div style={{ marginBottom: "15px" }}>
+            <label>Name</label>
+            <input type="text" name="name" value={formData.name} onChange={handleChange}
+              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "5px", border: "1px solid #ccc" }}
+              required />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="name">Full Name</label><br />
-          <input type="text" id="name" value={form.name} onChange={handleChange} required />
-        </div>
+          <div style={{ marginBottom: "15px" }}>
+            <label>Email</label>
+            <input type="email" name="email" value={formData.email} onChange={handleChange}
+              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "5px", border: "1px solid #ccc" }}
+              required />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" value={form.email} onChange={handleChange} required />
-        </div>
+          <div style={{ marginBottom: "15px" }}>
+            <label>Phone Number</label>
+            <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange}
+              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "5px", border: "1px solid #ccc" }}
+              required />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="phone">Phone</label><br />
-          <input type="tel" id="phone" value={form.phone} onChange={handleChange} required />
-        </div>
+          <div style={{ marginBottom: "15px" }}>
+            <label>Password</label>
+            <input type="password" name="password" value={formData.password} onChange={handleChange}
+              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "5px", border: "1px solid #ccc" }}
+              required />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="pass">Password</label><br />
-          <input type="password" id="pass" value={form.pass} onChange={handleChange} required />
-        </div>
+          <div style={{ marginBottom: "15px" }}>
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange}
+              style={{ width: "100%", padding: "8px", marginTop: "5px", borderRadius: "5px", border: "1px solid #ccc" }}
+              required />
+          </div>
 
-        <div className="form-group">
-          <label htmlFor="confirmPass">Confirm Password</label><br />
-          <input type="password" id="confirmPass" value={form.confirmPass} onChange={handleChange} required />
-        </div>
+          <button type="submit" style={{
+            width: "100%", padding: "10px", backgroundColor: "#007BFF",
+            color: "white", border: "none", borderRadius: "5px",
+            fontSize: "16px", cursor: "pointer"
+          }}>
+            Register
+          </button>
+        </form>
 
-        <div>
-          <br />
-          <input type="submit" value="CREATE ACCOUNT" style={{ backgroundColor: "hsl(120, 22%, 39%)" }} />
-        </div>
-
-        <div>
-          <p style={{ textAlign: "center" }}>
-            Already have an account? <a href="/login" className="no-line"><span style={{ color: "rgb(85, 85, 186)" }}>Sign in</span></a>
-          </p>
-        </div>
-      </form>
+        {/* Added "Already have an account" */}
+        <p style={{ textAlign: "center", marginTop: "15px" }}>
+          Already have an account? <Link to="/login" style={{ color: "#007BFF", textDecoration: "none" }}>Login</Link>
+        </p>
+      </div>
     </div>
   );
 };
 
-export default Register;
+export default RegisterPage;

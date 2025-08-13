@@ -4,10 +4,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Register from "./component/Register";
 import Login from "./component/Login";
-import Home from "./component/Home"
+
 import SubscriptionPage from "./component/SubscriptionPage";
 import PlanCard from "./component/PlanCard";
 import MembershipPlans from "./component/MembershipPlans";
+import PaymentPage from "./component/PaymentPage";
+import HomePage from "./component/HomePage";
+
 
 // Define routes
 const router = createBrowserRouter([
@@ -31,7 +34,15 @@ const router = createBrowserRouter([
   {
     path:"/member",
     element:<MembershipPlans/>
-  }
+  },
+ {
+  path: "/payment/:planId",
+  element: <PaymentPage />
+}, 
+{
+  path:"/home",
+  element:<HomePage/>
+}
 ]);
 
 function App() {

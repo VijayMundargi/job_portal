@@ -6,14 +6,16 @@ const SubscriptionPage = () => {
   const [plans, setPlans] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/plans')
-      .then(res => setPlans(res.data))
-      .catch(err => console.error(err));
+    axios.get('http://localhost:4000/api/plans', {
+      withCredentials: true // Optional: only if backend uses cookies/session
+    })
+    .then(res => setPlans(res.data))
+    .catch(err => console.error('Failed to fetch plans:', err));
   }, []);
 
   return (
     <div className="subscription-container">
-      <h1 className="heading">Memberships plans.</h1>
+      <h1 className="heading">Membership plans</h1>
       <p className="subheading">Choose a plan that's right for you...</p>
       <div className="plan-grid">
         {plans.map(plan => (
