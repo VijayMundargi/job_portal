@@ -1,0 +1,147 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Box */
+.login-box {
+  background: white;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+.login-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+/* Input Fields */
+form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+form input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f9fafb;
+}
+
+/* Options */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.options a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+/* Login Button */
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: #111827;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background: #1f2937;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.divider span {
+  background: white;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e5e7eb;
+  z-index: 0;
+}
+
+/* Social Buttons */
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  color: #111827;
+  transition: background 0.2s;
+}
+
+.social-buttons button:hover {
+  background: #f3f4f6;
+}
+
+/* Footer */
+.footer-text {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-text a {
+  color: #3b82f6;
+  text-decoration: none;
+}

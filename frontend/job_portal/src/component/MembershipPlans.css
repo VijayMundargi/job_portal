@@ -1,0 +1,106 @@
+.pricing-container {
+  font-family: sans-serif;
+  padding: 40px;
+  background: #fff;
+}
+
+.pricing-container h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.plans {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.plan-card {
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 20px;
+  flex: 1;
+  max-width: 300px;
+  box-shadow: 0 0 0 1px #e0e0e0;
+}
+
+.plan-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.plan-card h2 {
+  font-size: 28px;
+  color: #0070f3;
+  margin: 0 0 10px 0;
+}
+
+.plan-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.plan-card ul li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.plan-card button {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.plan-card button.white {
+  background-color: white;
+  color: black;
+  border: 1px solid #ddd;
+}
+
+.highlighted {
+  background: linear-gradient(135deg, #0d47a1, #1976d2);
+  color: white;
+}
+
+.highlighted h2,
+.highlighted h3,
+.highlighted p,
+.highlighted ul li {
+  color: white;
+}
+
+.highlighted button.white {
+  color: black;
+  background: white;
+}
+
+.plan-card.selected {
+  background-color: #2f20d0;
+  border: 2px solid #0070f3;
+  box-shadow: 0 0 12px rgba(0, 112, 243, 0.3);
+}
+
+/* Optional: override highlighted if also selected */
+.plan-card.highlighted.selected {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  border: 2px solid #fff;
+  
+}

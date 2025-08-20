@@ -1,0 +1,107 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f5f6fa;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background-color: #2563eb;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+}
+
+.header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Payment container */
+.payment-container {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.payment-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2563eb;
+}
+
+/* Form */
+form .form-group {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+form button {
+  width: 100%;
+  padding: 15px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #1e40af;
+}
+
+/* Footer */
+.footer {
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 15px;
+  margin-top: 50px;
+  font-size: 0.9rem;
+  color: #555;
+}

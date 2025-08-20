@@ -1,0 +1,77 @@
+/* src/component/About.css */
+.about-container {
+  font-family: 'Arial', sans-serif;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.about-hero p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.about-mission,
+.about-values {
+  margin-bottom: 3rem;
+}
+
+.about-mission h2,
+.about-team h2,
+.about-values h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.about-team .team-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-card {
+  text-align: center;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.team-card h3 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.team-card p {
+  color: #777;
+}
+
+.team-img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.about-values ul {
+  list-style: disc inside;
+  padding-left: 0;
+  color: #555;
+}
+
+.about-values li {
+  margin-bottom: 0.5rem;
+}

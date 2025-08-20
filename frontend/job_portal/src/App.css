@@ -1,0 +1,11 @@
+header {
+  position: fixed; /* optional if you want a fixed header */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff; /* ensure it's visible */
+}
+.main-content {
+  padding-top: 80px; /* height of the header so content doesn't hide under it */
+}
